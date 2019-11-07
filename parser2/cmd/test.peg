@@ -1,0 +1,7 @@
+Source <- _ BracedAnything*
+BracedAnything <- "{" _ ( Comment / !"}" !"{" . / BracedAnything )* "}" _
+
+_ <- ([\n\t ] / Comment)*
+Comment <- < "//" ( !"\n" . )* > "\n"
+__ <- [\n\t ]*
+

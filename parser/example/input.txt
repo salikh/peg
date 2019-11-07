@@ -1,0 +1,9 @@
+// Arbitrary line
+
+#include <stdio.h>
+
+#include "my.h"
+#include "my/flags.h"
+#include "my/init.h"
+
+// More lines

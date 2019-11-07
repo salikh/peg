@@ -1,0 +1,4 @@
+# A newline after a comma should be okay
+a(x,
+  y,
+  z)

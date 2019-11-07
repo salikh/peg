@@ -1,0 +1,20 @@
+# What
+
+> Clean up the API
+  > Node.Start
+  > Node.Annotations
+  > Node.TreeAnnotations
+  > parser.Result
+> Write documentation
+  > Parser dynamic example
+  > Generator example
+  > Syntactic to semantic conversion example
+> More thorough tests?
+> Open-source release (to Github)
+> Fully bootstrapped?
+> Bazel-build with bazel rules
+
+# Why to do?
+
+- Want to use backward parser
+- Want to keep using familiar API

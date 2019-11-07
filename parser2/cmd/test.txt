@@ -1,0 +1,9 @@
+// Some comment
+{
+  {
+    properly nested
+    // Comments {{{
+  }
+}
+// More comments }}
+

@@ -1,0 +1,50 @@
+// Copyright 2019 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package gen
+
+import (
+	"testing"
+
+	"github.com/salikh/peg/tests"
+  "github.com/salikh/peg/generator"
+)
+
+const testNum = 24
+
+func TestParser(t *testing.T) {
+	test := tests.Positive[testNum]
+	for _, tt := range test.Outcomes {
+		t.Logf("Grammar:\n%s", test.Grammar)
+		g, err := generator.Parse2(test.Grammar)
+		if err != nil {
+			t.Errorf("error in test, cannot parse the grammar: %s, grammar:\n%s", err, test.Grammar)
+		}
+		t.Logf("Parsed Grammar:\n%s", g)
+		t.Logf("Input: [%s]", tt.Input)
+		result, err := Parse(tt.Input)
+		if err != nil {
+			t.Logf("Error: %s", err)
+		}
+		t.Logf("Tree: %s", result.Tree)
+		if err != nil && tt.Ok {
+			t.Errorf("parser.New(%q).Generate()/Parse(%q) returns error %s, want success", test.Grammar, tt.Input, err)
+			continue
+		}
+		if err == nil && !tt.Ok {
+			t.Errorf("parser.New(%q).Generate()/Parse(%q) returns success, want error", test.Grammar, tt.Input)
+			continue
+		}
+	}
+}

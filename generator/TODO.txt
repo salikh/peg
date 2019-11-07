@@ -1,0 +1,1 @@
+> Fix generator so that peg.peg.go can be used without modifications.

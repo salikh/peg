@@ -1,0 +1,2 @@
+# FIXME: Current grammar does not support statements in arguments
+a(x;y)

@@ -1,0 +1,3 @@
+# FIXME: IO grammar does not support statements in arguments
+a(x
+y)
